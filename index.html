@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon">
+    <script src="js.js"></script>
+    <title>Projeto Sip</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="img/Logo.png" alt="Logo">
+            <h1>Tradutor de Libra</h1>
+        </div>
+        <nav>
+            <a href="#inicio">inicio</a>
+            <a href="#section-sobre-projeto">Sobre</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#tecnologia">Tecnologia</a>
+        </nav>
+    </header>
+    <div class="box" id="inicio">
+        <div class="reconhecimento">
+            <div class="circulo"></div>
+            <h3>Reconhecimento de libras com inteligência Artificial</h3>
+        </div>
+
+        <div class="titulo">
+            <h1>Mãos que <br> <span>Falam</span></h1>
+            <p> Um sistema de reconhecimento automático de libras que traduz <br> gestos em texto em tempo real,
+                promovendo comunicação igualitária <br> para pessoas com deficiência auditiva ou vocal.
+            </p>
+        </div>
+        <div class="buttons">
+            <a href="#section-sobre-projeto">
+                <button>
+                    Conheça o projeto <i class="fi fi-rr-arrow-small-right"></i>
+                </button>
+            </a>
+        </div>
+    </div>
+    <section id="section-sobre-projeto">
+        <main>
+            <div class="texto">
+                <span>SOBRE O PROJETO</span>
+                <h1>Comunicação sem barreiras</h1>
+                <p>
+                    Segundo o IBGE, mais de 458 mil brasileiros recebem deficiência auditiva. <br> Apesar de dominarem a
+                    Libras,
+                    enfrentam diariamente barreiras de <br> comunicação por falta de conhecimento da língua por parte da
+                    sociedade
+                </p>
+            </div>
+            <div class="box-card">
+                <div class="card">
+                    <div class="icon">
+                        🎯
+                    </div>
+                    <h3>Objetivo</h3>
+                    <p>Desenvolver um sistema capaz de desmembrar de Libras em tempo real e convertê-los em texto,
+                        contribuindo para uma comunicação mais acessível e igualitária.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="icon" id="cerebro">
+                        🧠
+                    </div>
+                    <h3>Abordagem</h3>
+                    <p>Utilizamos aprendizado com poucas amostras (few-shot learning) e Redes Prototípicas, permitindo
+                        que
+                        palavras sejam reconhecidas mesmo com poucos exemplos disponíveis.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="icon" id="raio">
+                        ⚡
+                    </div>
+                    <h3>Diferencial</h3>
+                    <p>Em vez de analisar pixels brutos, extraímos 75 pontos de referência (landmarks) do corpo e das
+                        mãos - uma representação leve, rápida e robusta a variações de fundo e iluminação
+                    </p>
+                </div>
+            </div>
+            <div class="number">
+                <div id="caixa1" class="caixa">
+                    <h1>+10</h1>
+                    <p>milhões de brasileiros com deficiência <br>auditiva</p>
+                </div>
+                <div class="caixa">
+                    <h1>74</h1>
+                    <p>palavras no vocabulário</p>
+                </div>
+                <div class="caixa">
+                    <h1>75</h1>
+                    <p>Landmarks por frame</p>
+                </div>
+                <div class="caixa">
+                    <h1>90</h1>
+                    <p>Quadros por sinal</p>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <section id="como-funciona">
+        <div class="secao-topo">
+            <span>PIPELINE</span>
+            <h2>Como funciona</h2>
+            <p>Do gesto à palavra, em cinco etapas automatizadas.</p>
+        </div>
+
+        <div class="carrossel">
+            <button class="seta esq" aria-label="Anterior">‹</button>
+            <div class="trilho">
+                <div class="cartao">
+                    <div class="num">01</div>
+                    <h3>Captura</h3>
+                    <p>A webcam captura o vídeo do sinalizador em tempo real.</p>
+                </div>
+                <div class="cartao">
+                    <div class="num">02</div>
+                    <h3>Extração</h3>
+                    <p>O MediaPipe Holistic identifica 75 pontos de referência do corpo e das mãos.</p>
+                </div>
+                <div class="cartao">
+                    <div class="num">03</div>
+                    <h3>Normalização</h3>
+                    <p>Os pontos são centralizados no quadril e escalados pelos ombros, tornando o modelo invariante à
+                        posição.</p>
+                </div>
+                <div class="cartao">
+                    <div class="num">04</div>
+                    <h3>Codificação</h3>
+                    <p>Uma rede BiLSTM com pooling temporal transforma a sequência de 90 quadros em um vetor de 64
+                        dimensões.</p>
+                </div>
+                <div class="cartao">
+                    <div class="num">05</div>
+                    <h3>Classificação</h3>
+                    <p>O embedding é comparado com protótipos de cada palavra. As 5 mais próximas são exibidas.</p>
+                </div>
+            </div>
+            <button class="seta dir" aria-label="Próximo">›</button>
+        </div>
+    </section>
+
+
+    <section id="tecnologia">
+        <div class="secao-topo">
+            <span>STACK</span>
+            <h2>Tecnologias utilizadas</h2>
+            <p>Ferramentas modernas e eficientes, escolhidas para viabilizar o reconhecimento em cenários de poucos
+                recursos.</p>
+        </div>
+
+        <div class="carrossel">
+            <button class="seta esq" aria-label="Anterior">‹</button>
+            <div class="trilho">
+                <div class="cartao tech">
+                    <div class="emoji">🐍</div>
+                    <h3>Python</h3>
+                    <p>Linguagem base</p>
+                </div>
+                <div class="cartao tech">
+                    <div class="emoji">🧠</div>
+                    <h3>TensorFlow</h3>
+                    <p>Deep Learning</p>
+                </div>
+                <div class="cartao tech">
+                    <div class="emoji">✋</div>
+                    <h3>MediaPipe</h3>
+                    <p>Detecção de landmarks</p>
+                </div>
+                <div class="cartao tech">
+                    <div class="emoji">🎥</div>
+                    <h3>OpenCV</h3>
+                    <p>Processamento de vídeo</p>
+                </div>
+                <div class="cartao tech">
+                    <div class="emoji">⚡</div>
+                    <h3>ROCm</h3>
+                    <p>Aceleração AMD</p>
+                </div>
+                <div class="cartao tech">
+                    <div class="emoji">🔬</div>
+                    <h3>Scikit-learn</h3>
+                    <p>Divisão e métricas</p>
+                </div>
+            </div>
+            <button class="seta dir" aria-label="Próximo">›</button>
+        </div>
+    </section>
+</body>
+
+</html>
